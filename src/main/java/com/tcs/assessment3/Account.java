@@ -13,8 +13,8 @@ import org.slf4j.LoggerFactory;
 
 import com.tcs.assessment3.*;
 
-public class Assessment3 {
-	private static final Logger logger = LoggerFactory.getLogger(Assessment3.class);
+public class Account {
+	private static final Logger logger = LoggerFactory.getLogger(Account.class);
 	public static void main(String[] args) {
 		String DB_URL="jdbc:mysql://localhost:3306/assessment";
 		String DB_USER="root";
