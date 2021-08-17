@@ -24,8 +24,10 @@ public class Assessment3 {
 				Statement statement = connection.createStatement();){
 			//create(statement);//create operation 
 			//update(statement);
-			retrieve(statement);
+			//retrieve(statement);
 			//delete(statement);
+			//Deposit(statement);
+			Withdraw(statement);
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -50,6 +52,16 @@ public class Assessment3 {
 			logger.debug("id={}",resultSet.getInt(1));
 		}
 		
+	}
+	
+	private static void Deposit(Statement statement) throws SQLException {
+		statement.executeUpdate("UPDATE ACCOUNTS set BALANCE_AMOUNT = BALANCE_AMOUNT + 48000 where ACCOUNT_ID = 987678");
+		logger.debug("Amount Deposited");
+	}
+	private static void Withdraw(Statement statement) throws SQLException {
+		
+		statement.executeUpdate("UPDATE ACCOUNTS set BALANCE_AMOUNT = BALANCE_AMOUNT - 16000 where BALANCE_AMOUNT >= 1000 and ACCOUNT_ID = 987678" );
+		logger.debug("Amount Withdrawn");
 	}
 
 	private static void create(Statement statement) throws SQLException {
