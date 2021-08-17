@@ -8,7 +8,13 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.tcs.assessment3.*;
+
 public class Assessment3 {
+	private static final Logger logger = LoggerFactory.getLogger(Assessment3.class);
 	public static void main(String[] args) {
 		String DB_URL="jdbc:mysql://localhost:3306/assessment";
 		String DB_USER="root";
@@ -18,7 +24,7 @@ public class Assessment3 {
 				Statement statement = connection.createStatement();){
 			//create(statement);//create operation 
 			//update(statement);
-			//retrieve(statement);
+			retrieve(statement);
 			//delete(statement);
 			
 		} catch (SQLException e) {
@@ -38,11 +44,10 @@ public class Assessment3 {
 
 	private static void retrieve(Statement statement) throws SQLException {
 		ResultSet resultSet = statement.executeQuery("SELECT * from accounts");
-		List<String> regions = new ArrayList<String>();
+		List<String> accounts = new ArrayList<String>();
 		while (resultSet.next()) {
-			//logger.debug(resultSet.getString("OWNER_NAME"));
-			System.out.println(resultSet.getInt(1));
-			System.out.println(resultSet.getInt("BALANCE_AMOUNT"));
+			logger.debug(resultSet.getString("OWNER_NAME"));
+			logger.debug("id={}",resultSet.getInt(1));
 		}
 		
 	}
