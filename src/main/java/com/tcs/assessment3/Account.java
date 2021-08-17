@@ -22,11 +22,11 @@ public class Account {
 		
 		try(Connection connection= DriverManager.getConnection(DB_URL,DB_USER,DB_PASSWORD);
 				Statement statement = connection.createStatement();){
-			//create(statement);//create operation 
-			//update(statement);
-			//retrieve(statement);
-			//delete(statement);
-			//Deposit(statement);
+			//create(statement);
+			update(statement);
+			retrieve(statement);
+			delete(statement);
+			Deposit(statement);
 			Withdraw(statement);
 			
 		} catch (SQLException e) {
